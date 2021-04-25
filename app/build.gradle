@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+android {
+    defaultConfig {
+        applicationId "com.assignment.shaadi"
+        compileSdkVersion 29
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    android {
+        androidExtensions {
+            experimental = true
+        }
+
+        viewBinding {
+            enabled = true
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.3.0-alpha01'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha04'
+
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    // MultiDex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // greenRobot Essentials
+    implementation 'org.greenrobot:essentials:3.0.0-RC1'
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:$kotlinExtension"
+
+    // Object Box
+    debugImplementation "io.objectbox:objectbox-android-objectbrowser:$objectboxVersion"
+    releaseImplementation "io.objectbox:objectbox-android:$objectboxVersion"
+
+    // Sweet Alert
+    implementation "com.github.f0ris.sweetalert:library:$sweetAlert"
+
+    // Retrofit2 & OkHttp3
+    implementation "com.squareup.retrofit2:converter-gson:$gsonConverter"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxAdapter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpInterceptor"
+
+    // RxJava2
+    implementation "io.reactivex.rxjava2:rxjava:$rxJava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$daggerHilt"
+    kapt "com.google.dagger:hilt-android-compiler:$daggerHilt"
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$picasso"
+
+
+    // Testing
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$junitAndoridExtension"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore"
+
+}
+apply plugin: 'io.objectbox'
+

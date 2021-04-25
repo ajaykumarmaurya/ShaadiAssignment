@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Shaadi Assignment</string>
+    <string name="txt_decline">Decline</string>
+    <string name="txt_accept">Connect</string>
+</resources>
